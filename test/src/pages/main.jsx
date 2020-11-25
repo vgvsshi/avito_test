@@ -15,17 +15,15 @@ export const MainPage = () => {
 	useEffect(() => {
 		let mounted = true
 		setLoading(true)
-		if (mounted) {
-			getIds().then(data => {
-				if (mounted) {
-					dispatch(loadIDs(data.slice(399, 499)))
-					setLoading(false)
-					// setInterval(() => {
-					// 	setUpdate(update + 1)
-					// }, 60000)
-				}
-			})
-		}
+		getIds().then(data => {
+			if (mounted) {
+				dispatch(loadIDs(data.slice(399, 499)))
+				setLoading(false)
+				setInterval(() => {
+					setUpdate(update + 1)
+				}, 60000)
+			}
+		})
 		return () => mounted = false
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [update])

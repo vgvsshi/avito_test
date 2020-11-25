@@ -8,7 +8,13 @@ export const StoryBlock = ({ id }) => {
 	const [story, setStory] = useState()
 
 	useEffect(() => {
-		getStory(id).then(data => setStory(data))
+		let mounted = true
+		getStory(id).then(data => {
+			if (mounted) {
+				setStory(data)
+			}
+		})
+		return () => mounted = false
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [])
 
