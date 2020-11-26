@@ -8,7 +8,6 @@ export const Comment = ({ item, update }) => {
 	const [comment, setComment] = useState(null)
 	const [showKids, setKids] = useState(false)
 	const [loading, setLoading] = useState(true)
-	const [count, setCount] = useState(0)
 
 	useEffect(() => {
 		let mounted = true
