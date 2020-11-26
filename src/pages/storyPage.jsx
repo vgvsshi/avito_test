@@ -14,9 +14,9 @@ export const StoryPage = () => {
 	const [story, setStory] = useState(null)
 	const [update, setUpdate] = useState(0)
 	const [count, setCount] = useState(0)
+	const [mounted, setMount] = useState(true)
 
 	useEffect(() => {
-		let mounted = true
 		if (id) {
 			getItem(id).then(data => {
 				if (mounted) {
@@ -24,7 +24,7 @@ export const StoryPage = () => {
 				}
 			})
 		}
-		return () => mounted = false
+		return () => setMount(false)
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [])
 
@@ -43,7 +43,6 @@ export const StoryPage = () => {
 	}
 
 	useEffect(() => {
-		let mounted = true
 		if (story) {
 			if (mounted) {
 				getNumberOfComments(story.kids)
@@ -54,7 +53,7 @@ export const StoryPage = () => {
 				}, 60000)
 			}
 		}
-		return () => mounted = false
+		return () => setMount(false)
 	}, [story, update])
 
 

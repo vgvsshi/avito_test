@@ -177,11 +177,19 @@
 			flex-direction: column;
 			border: 1px solid #c4c8cc;
 			border-radius: 10px;
-			padding: 15px 30px;
+			padding: 20px 30px;
 			margin-top: 20px;
 			transition: all 0.2s linear;
 			@media (max-width: 992px) {
-				padding: 10px 20px;
+				padding: 20px 20px;
+			}
+			@media (max-width: 992px) {
+				padding: 15px 10px;
+			}
+			@media (max-width: 481px) {
+				padding: 10px 0;
+				border: none;
+				border-radius: 0;
 			}
 			.main-comment {
 				cursor: pointer;
@@ -248,13 +256,17 @@
 			.subcomments {
 				margin-left: 10px;
 				@media (max-width: 481px) {
-					margin-left: 5px;
+					margin-left: 10px;
 				}
 			}
 		}
 
 		.active {
 			border: 1px solid $subcolor;
+			@media (max-width: 481px) {
+				border: none;
+				background-color: #e9edf2;
+			}
 		}
 	}
 }
