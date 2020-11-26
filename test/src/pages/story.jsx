@@ -1,18 +1,20 @@
 import React, { useEffect, useState } from 'react'
-import { getStory } from '../services/api'
+import { getItem } from '../services/api'
 import { Link } from 'react-router-dom'
 import moment from 'moment'
 import '../styles/main.scss'
 
 export const StoryBlock = ({ id }) => {
-	const [story, setStory] = useState()
+	const [story, setStory] = useState(null)
 
 	useEffect(() => {
 		let mounted = true
-		getStory(id).then(data => {
+		getItem(id).then(data => {
 			if (mounted) {
 				setStory(data)
 			}
+		}).catch((e) => {
+			console.log(e.message)
 		})
 		return () => mounted = false
 		// eslint-disable-next-line react-hooks/exhaustive-deps

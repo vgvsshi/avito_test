@@ -1,7 +1,9 @@
+@import "variables";
+
 .header {
 	width: 100%;
 	height: 110px;
-	background-color: #212121;
+	background-color: $mainColor;
 	box-shadow: 0px 2px 5px 0px rgba(33, 33, 33, 1);
 	color: white;
 	display: flex;
@@ -12,10 +14,11 @@
 		height: 80px;
 	}
 	.logo {
-		font-family: "Philosopher", sans-serif;
+		font-family: $subfont;
 		font-weight: 700;
 		font-size: 50px;
 		line-height: 60px;
+		color: $subcolor;
 		@media (max-width: 850px) {
 			font-size: 25px;
 			line-height: 30px;
@@ -28,6 +31,7 @@
 		font-size: 15px;
 		font-weight: 300;
 		text-transform: uppercase;
+		color: $whitecolor;
 		@media (max-width: 850px) {
 			font-size: 10px;
 		}

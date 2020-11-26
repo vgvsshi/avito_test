@@ -2,17 +2,20 @@ import React from 'react'
 import { Route, Switch } from 'react-router-dom'
 import { MainPage } from './pages/main'
 import { StoryPage } from './pages/storyPage'
+import { Link } from 'react-router-dom'
 import './styles/app.scss'
 
 const App = () => {
 	return (
 		<>
 			<div className='header'>
-				<div className='logo'>
-					Hacker News
-				</div>
+				<Link to='/'>
+					<div className='logo'>
+						Hacker News
+					</div>
+				</Link>
 				<div className='sublogo'>
-					the latest news of the hacker world
+					daily news of the hacking world
 				</div>
 			</div>
 			<Switch>

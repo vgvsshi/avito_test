@@ -1,3 +1,5 @@
+@import "variables";
+
 .wrapper {
 	width: 100%;
 	padding: 70px 0;
@@ -14,57 +16,58 @@
 			padding: 0 20px 0 60px;
 		}
 		@media (max-width: 481px) {
-			padding: 0 20px 0 40px;
+			padding: 0 20px 0 20px;
 		}
 		.story-list {
 			display: flex;
 			flex-direction: column;
 			position: relative;
-			border-left: 2px solid #dedede;
+			border-left: 2px solid #c4c8cc;
+			@media (max-width: 481px) {
+				border: none;
+			}
 			&::before {
 				content: "HN";
 				position: absolute;
-				background-color: #212121;
-				color: white;
+				background-color: $subcolor;
+				color: $whitecolor;
 				border-radius: 50%;
 				padding: 7px;
 				left: -26px;
 				top: -25px;
 				font-size: 25px;
-				font-family: "Philosopher", sans-serif;
+				font-family: $subfont;
 				font-weight: 700;
-				box-shadow: 0px 0px 13px 1px rgba(0, 0, 0, 0.75);
+				box-shadow: 0px 0px 6px 1px rgba(0, 0, 0, 0.75);
 				@media (max-width: 481px) {
-					left: -22px;
-					font-size: 20px;
+					display: none;
 				}
 			}
 			&::after {
 				content: "HN";
 				position: absolute;
-				background-color: #212121;
-				color: white;
+				background-color: $subcolor;
+				color: $whitecolor;
 				border-radius: 50%;
 				padding: 7px;
 				left: -26px;
 				bottom: -25px;
 				font-size: 25px;
-				font-family: "Philosopher", sans-serif;
+				font-family: $subfont;
 				font-weight: 700;
-				box-shadow: 0px 0px 13px 1px rgba(0, 0, 0, 0.75);
+				box-shadow: 0px 0px 6px 1px rgba(0, 0, 0, 0.75);
 				@media (max-width: 481px) {
-					left: -22px;
-					font-size: 20px;
+					display: none;
 				}
 			}
 			.refresh {
 				position: absolute;
 				right: -15px;
 				top: -18px;
-				border: 1px solid #212121;
+				border: 1px solid $subcolor;
+				color: $subcolor;
 				border-radius: 5px;
 				padding: 10px 20px;
-				// font-family: "Philosopher", sans-serif;
 				font-size: 18px;
 				font-weight: 600;
 				background-color: transparent;
@@ -78,11 +81,20 @@
 					right: 0;
 				}
 				@media (max-width: 481px) {
+					right: auto;
+					left: 0;
 					top: -23px;
 				}
-				&:hover {
-					background-color: #212121;
-					color: white;
+				@media (min-width: 768px) {
+					&:hover {
+						background-color: $subcolor;
+						color: $whitecolor;
+						box-shadow: 0px 0px 8px 0px rgba(0, 0, 0, 0.75);
+					}
+				}
+				@media (max-width: 768px) {
+					background-color: $subcolor;
+					color: $whitecolor;
 					box-shadow: 0px 0px 8px 0px rgba(0, 0, 0, 0.75);
 				}
 			}
@@ -94,7 +106,7 @@
 				flex-direction: column;
 				justify-content: space-between;
 				align-items: flex-start;
-				border-bottom: 2px solid #dedede;
+				border-bottom: 2px solid #c4c8cc;
 				min-height: 260px;
 				@media (max-width: 1050px) {
 					padding-left: 80px;
@@ -105,7 +117,6 @@
 				}
 				@media (max-width: 481px) {
 					padding: 20px 0;
-					padding-left: 20px;
 					min-height: 170px;
 				}
 				&:first-child {
@@ -120,17 +131,17 @@
 					font-weight: 700;
 					line-height: 45px;
 					cursor: pointer;
-					color: #212121;
+					color: $mainColor;
 					text-decoration: none;
-					@media (min-width: 768px) {
+					@media (min-width: 1050px) {
 						&:hover {
 							color: transparent;
-							-webkit-text-stroke: 2px black;
+							-webkit-text-stroke: 2px $subcolor;
 						}
 						@supports not (-webkit-text-stroke: 2px red) {
 							&:hover {
-								text-shadow: 3px 3px 0 #212121, -1px -1px 0 #212121, 1px -1px 0 #212121, -1px 1px 0 #212121,
-									1px 1px 0 #212121;
+								text-shadow: 3px 3px 0 black, -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black,
+									1px 1px 0 black;
 							}
 						}
 					}
@@ -153,20 +164,26 @@
 					justify-content: space-between;
 					color: #212121;
 					@media (max-width: 481px) {
+						width: auto;
 						flex-direction: column;
 					}
 					.story__attr {
 						font-weight: 600;
 						font-size: 18px;
+						color: $subcolor;
 						@media (max-width: 1050px) {
 							font-size: 15px;
 						}
 						span {
+							color: $mainColor;
 							margin-right: 5px;
 							font-weight: 300;
 							font-size: 16px;
 							@media (max-width: 1050px) {
 								font-size: 13px;
+							}
+							@media (max-width: 481px) {
+								margin-right: 0;
 							}
 						}
 					}
@@ -180,18 +197,22 @@
 					top: calc(50%);
 					transform: translateY(-50%);
 					left: -50px;
-					background-color: #f8f8f8;
+					background-color: $whitecolor;
 					padding: 5px 0;
 					@media (max-width: 1050px) {
 						left: -39px;
 					}
 					@media (max-width: 481px) {
-						position: static;
 						flex-direction: row;
-						margin-top: 10px;
 						padding: 0;
+						left: auto;
+						top: auto;
+						transform: translateY(0);
+						bottom: 22px;
+						right: 0;
 					}
 					.first-date {
+						color: $mainColor;
 						font-size: 15px;
 						font-weight: 700;
 						@media (max-width: 1050px) {
@@ -201,10 +222,11 @@
 							font-size: 10px;
 						}
 						@media (max-width: 481px) {
-							margin-right: 10px;
+							margin-right: 5px;
 						}
 					}
 					.second-date {
+						color: $mainColor;
 						font-weight: 300;
 						font-size: 13px;
 						@media (max-width: 481px) {

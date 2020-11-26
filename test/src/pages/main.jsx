@@ -19,8 +19,10 @@ export const MainPage = () => {
 			if (mounted) {
 				dispatch(loadIDs(data.slice(399, 499)))
 				setLoading(false)
-				setInterval(() => {
-					setUpdate(update + 1)
+				setTimeout(() => {
+					if (mounted) {
+						setUpdate(update + 1)
+					}
 				}, 60000)
 			}
 		})
