@@ -25,7 +25,7 @@ export const Comment = ({ item }) => {
 						if (mounted) {
 							dispatch(update())
 						}
-					}, 5000)
+					}, 60000)
 				}
 			})
 		}
