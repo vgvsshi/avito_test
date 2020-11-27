@@ -5,6 +5,13 @@ const loadIDs = (IDS) => {
 	};
 };
 
+const update = () => {
+	return {
+		type: 'UPDATE'
+	}
+}
+
 export {
-	loadIDs
+	loadIDs,
+	update
 }

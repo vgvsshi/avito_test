@@ -1,5 +1,6 @@
 const initialState = {
 	IDsList: [],
+	update: 0
 }
 
 const reducer = (state = initialState, action) => {
@@ -9,6 +10,11 @@ const reducer = (state = initialState, action) => {
 				...state,
 				IDsList: action.payload
 			};
+		case "UPDATE":
+			return {
+				...state,
+				update: state.update + 1
+			}
 		default:
 			return state;
 	}

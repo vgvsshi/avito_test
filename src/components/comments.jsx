@@ -1,13 +1,17 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 import { getItem } from '../services/api'
-import '../styles/storyPage.scss'
+import { update } from '../redux/actions'
 import { Loader } from './loader'
+import '../styles/storyPage.scss'
 
-export const Comment = ({ item, update }) => {
+export const Comment = ({ item }) => {
 	const [comment, setComment] = useState(null)
 	const [showKids, setKids] = useState(false)
 	const [loading, setLoading] = useState(true)
+	const updateComm = useSelector(state => state.update)
+	const dispatch = useDispatch()
 
 	useEffect(() => {
 		let mounted = true
@@ -17,11 +21,16 @@ export const Comment = ({ item, update }) => {
 				if (mounted) {
 					setComment(data)
 					setLoading(false)
+					setTimeout(() => {
+						if (mounted) {
+							dispatch(update())
+						}
+					}, 5000)
 				}
 			})
 		}
 		return () => mounted = false
-	}, [update])
+	}, [updateComm])
 
 	if (!item) {
 		return null
